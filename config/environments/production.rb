@@ -80,7 +80,9 @@ Lobsters::Application.configure do
   config.action_mailer.postmark_settings = { :api_key => ENV["POSTMARK_API_KEY"] }
 
   config.middleware.use Rack::HostRedirect, {
-    'www.barnacl.es'          => 'barnacl.es',
-    'barnacles.herokuapp.com' => 'barnacl.es',
+    'www.impct.io'          => 'impct.io',
+    'impctio.herokuapp.com' => 'impct.io',
   }
+
+  config.secret_key_base = 'd90dbfa73499328b2b6e7ccf6b8f27b315d90544c6251e3fba4cf4c001b85b22250408feb07cc38a52e87524721e2761fb3100ccd3ec9d1ad720ce380e87e24a3'
 end
