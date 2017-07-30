@@ -79,8 +79,8 @@ Lobsters::Application.configure do
   config.action_mailer.delivery_method = :postmark
   config.action_mailer.postmark_settings = { :api_key => ENV["POSTMARK_API_KEY"] }
 
-  # config.middleware.use Rack::HostRedirect, {
-  #  'www.impct.io'          => 'impct.io',
+  config.middleware.use Rack::HostRedirect, {
+    'www.impct.io'          => 'impct.io',
   #  'impct.herokuapp.com' => 'impct.io',
   #}
 
