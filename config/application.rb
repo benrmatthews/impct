@@ -43,11 +43,11 @@ class << Rails.application
   end
 
   def domain
-    "example.com"
+    "impct.io"
   end
 
   def name
-    "Example News"
+    "impct.io"
   end
 
   def root_url
