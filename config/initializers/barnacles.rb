@@ -1,10 +1,10 @@
 class << Rails.application
   def domain
-    "barnacl.es"
+    "impct.io"
   end
 
   def name
-    "Barnacles"
+    "impct"
   end
 end
 
