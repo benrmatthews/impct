@@ -1,4 +1,4 @@
-User.create(:username => "test", :email => "test@example.com", :password => "test", :password_confirmation => "test", :is_admin => true, :is_moderator => true)
+User.create(:username => "impct", :email => "ben@montfort.io", :password => "test", :password_confirmation => "test", :is_admin => true, :is_moderator => true)
 puts "created user: test, password: test"
-Tag.create(:tag => "test")
-puts "created tag: test"
+Tag.create(:tag => "animals, arts, children, culture, data, digital, disability, education, events, older people, environment, health, homeless, human rights, international, religion, rescue, social media, social welfare, sport, tech, women")
+puts "created tags: animals, arts, children, culture, data, digital, disability, education, events, older people, environment, health, homeless, human rights, international, religion, rescue, social media, social welfare, sport, tech, women"
