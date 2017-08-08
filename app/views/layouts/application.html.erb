@@ -116,22 +116,7 @@
       <%= yield %>
 
       <div id="footer">
-        <a href="/moderations"><%= t('.moderationloglink') %></a>
-        <% if @user && !@user.is_new? &&
-        (iqc = InvitationRequest.verified_count) > 0 %>
-          <a href="/invitations"><%= t('.invitationqueuelink') %>(<%= iqc %>)</a>
-        <% end %>
-        <% if @user && @user.is_moderator? &&
-        (hrc = HatRequest.count) > 0 %>
-          <a href="/hats/requests"><%= t('.hatrequestlink') %> (<%= hrc %>)</a>
-        <% else %>
-          <a href="/hats"><%= t('.hatslink') %></a>
-        <% end %>
-        <% if @user.blank? %>
-          <a href="/invitations/open">Join impct</a>
-        <% end %>
-        <a href="/chat"><%= t('.chatlink') %></a>
-        <a href="/privacy"><%= t('.privacylink') %></a>
+        <p><Made with ❤ by <a href="https://montfort.io/">Montfort</a></p> | 
         <a href="/about"><%= t('.aboutlink') %></a>
       </div>
       <div class="clear"></div>
