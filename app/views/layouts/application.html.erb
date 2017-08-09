@@ -7,6 +7,7 @@
   <meta name="referrer" content="always" />
   <meta name="theme-color" content="#34a713" />
   <meta name="google-site-verification" content="LvJqLedQ8rDKDpJbA7WagjRmLbjFgCTFAf0YxbXfzQQ" />
+
   <% if @meta_tags %>
     <% @meta_tags.each do |k,v| %>
       <meta name="<%= k %>" content="<%= v %>" />
@@ -36,6 +37,16 @@
       title="<%= @comments_rss_link[:title] %>"
       href="<%= @comments_rss_link[:href] %>" />
   <% end %>
+  <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-48644120-4', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
 </head>
 <body>
   <div id="wrapper">
