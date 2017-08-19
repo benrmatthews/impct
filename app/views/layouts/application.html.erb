@@ -80,16 +80,16 @@
         <span class="headerlinks">
 <!--         <a href="/filters" <%= @cur_url == "/filters" ?
           raw("class=\"cur_url\"") : "" %>><%= t('.filterslink') %></a> -->
-        <% if @user && @user.can_submit_stories? %>
-           <% links.merge!({ "/stories/new" => t('.submitstorylink') }) %>
-        <% end %>
         <% if @user %>
           <% if (count = @user.unread_message_count) > 0 %>
             <a href="/messages" class="new_messages <%= @cur_url == "/messages" ?
               "cur_url" : "" %>"><%= t(".newmessagelink", :count => count)
               %></a>
           <% else %>
-            <a href="/messages" <%= @cur_url == "/messages" ?
+              <% if @user && @user.can_submit_stories? %>
+                <% links.merge!({ "/stories/new" => t('.submitstorylink') }) %>
+              <% end %>
+              <a href="/messages" <%= @cur_url == "/messages" ?
               raw("class=\"cur_url\"") : "" %>><%= t('.messageslink') %></a>
           <% end %>
 
