@@ -62,7 +62,7 @@
         } %>
 
         <% if @user && @user.can_submit_stories? %>
-          <% "/stories/new" => t('.submitstorylink') %>
+          <% links.merge!({ "/stories/new" => t('.submitstorylink') }) %>
         <% end %>
 
         <% if !@user %>
