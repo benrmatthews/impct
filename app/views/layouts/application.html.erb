@@ -52,14 +52,13 @@
   <div id="wrapper">
     <div id="header">
       <div id="headerleft">
-        <a id="l_holder" style="background-color: #<%= @traffic_color %>;"
-          href="/" title="<%= Rails.application.name %> (Current traffic: <%=
+        <a id="l_holder" href="/" title="<%= Rails.application.name %> (Current traffic: <%=
           @traffic.to_i %>)"></a>
 
         <% links = {
           "/" => @cur_url == "/" ? Rails.application.name : t('.homelink'),
-          "/recent" => t('.recentlink'),
-          "/comments" => t('.commentslink')
+          # "/recent" => t('.recentlink'),
+          # "/comments" => t('.commentslink')
         } %>
 
         <% if @user && @user.can_submit_stories? %>
@@ -86,8 +85,8 @@
 
       <div id="headerright">
         <span class="headerlinks">
-        <a href="/filters" <%= @cur_url == "/filters" ?
-          raw("class=\"cur_url\"") : "" %>><%= t('.filterslink') %></a>
+<!--         <a href="/filters" <%= @cur_url == "/filters" ?
+          raw("class=\"cur_url\"") : "" %>><%= t('.filterslink') %></a> -->
         <% if @user %>
           <% if (count = @user.unread_message_count) > 0 %>
             <a href="/messages" class="new_messages <%= @cur_url == "/messages" ?
