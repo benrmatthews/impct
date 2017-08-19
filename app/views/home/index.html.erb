@@ -1,6 +1,8 @@
-<% if !@user %>
-  <p>News for people making social impact. <a href="/invitations/open" style="color: green !important;">Sign up</a> to <a href="/stories/new">submit.</p>
-<% end %>
+<div id="wrapper">
+  <% if !@user %>
+    <p>News for people making social impact. <a href="/invitations/open" style="color: green !important;">Sign up</a> to <a href="/stories/new">submit.</p>
+  <% end %>
+</div>
 <% if @cur_url == "/recent" %>
   <div class="box" id="leader">
     <em>The <a href="/newest">newest</a> stories with a random sampling of
