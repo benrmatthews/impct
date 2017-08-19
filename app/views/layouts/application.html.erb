@@ -61,6 +61,10 @@
           # "/comments" => t('.commentslink')
         } %>
 
+        <% if @user && @user.can_submit_stories? %>
+           <% links.merge!({ "/stories/new" => t('.submitstorylink') }) %>
+        <% end %>
+
         <% if @cur_url.present? && !links.keys.include?(@cur_url) &&
         @heading.present? %>
           <span id="headertitle">
@@ -78,8 +82,6 @@
 
       <div id="headerright">
         <span class="headerlinks">
-        <% links.merge!({ "/stories/new" => t('.submitstorylink') }) %>
-
 <!--         <a href="/filters" <%= @cur_url == "/filters" ?
           raw("class=\"cur_url\"") : "" %>><%= t('.filterslink') %></a> -->
         <% if @user %>
@@ -88,7 +90,7 @@
               "cur_url" : "" %>"><%= t(".newmessagelink", :count => count)
               %></a>
           <% else %>
-              <a href="/messages" <%= @cur_url == "/messages" ?
+            <a href="/messages" <%= @cur_url == "/messages" ?
               raw("class=\"cur_url\"") : "" %>><%= t('.messageslink') %></a>
           <% end %>
 
