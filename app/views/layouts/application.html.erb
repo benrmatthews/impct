@@ -65,11 +65,9 @@
            <% links.merge!({ "/stories/new" => t('.submitstorylink') }) %>
         <% end %>
 
-        <a href="/about"><%= t('.aboutlink') %></a>
-
-<!--         <% if !@user %>
-          <% links.merge!({ "/search" => t('.searchlink') }) %>
-        <% end %> -->
+        <% if !@user %>
+           <a href="/about"><%= t('.aboutlink') %></a>
+        <% end %>
 
         <% if @cur_url.present? && !links.keys.include?(@cur_url) &&
         @heading.present? %>
