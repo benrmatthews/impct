@@ -78,10 +78,11 @@
 
       <div id="headerright">
         <span class="headerlinks">
+        <% links.merge!({ "/stories/new" => t('.submitstorylink') }) %>
+
 <!--         <a href="/filters" <%= @cur_url == "/filters" ?
           raw("class=\"cur_url\"") : "" %>><%= t('.filterslink') %></a> -->
         <% if @user %>
-          <% links.merge!({ "/stories/new" => t('.submitstorylink') }) %>
           <% if (count = @user.unread_message_count) > 0 %>
             <a href="/messages" class="new_messages <%= @cur_url == "/messages" ?
               "cur_url" : "" %>"><%= t(".newmessagelink", :count => count)
