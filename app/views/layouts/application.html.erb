@@ -62,9 +62,8 @@
         } %>
 
         <% if @user && @user.can_submit_stories? %>
-           <strong><a href="/stories/new" style="color: green !important;">Submit</a></strong>
-<!--           <% links.merge!({ "/stories/new" => t('.submitstorylink') }) %>
- -->        <% end %>
+           <% links.merge!({ "/stories/new" => t('.submitstorylink') }) %>
+        <% end %>
 
         <% if !@user %>
           <% links.merge!({ "/search" => t('.searchlink') }) %>
