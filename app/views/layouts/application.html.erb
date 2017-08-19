@@ -102,11 +102,11 @@
             :data => { :confirm => t('.confirmlogoutlink') },
             :method => "post" %>
         <% else %>
+          <a href="/about"><%= t('.aboutlink') %></a>
           <a href="/login"><%= t('.loginlink') %></a>
         <% end %>
         <% if !@user %>
           <strong><a href="/invitations/open" style="color: green !important;">Sign Up</a></strong>
-          <a href="/about"><%= t('.aboutlink') %></a>
         <% end %>
         </span>
       </div>
