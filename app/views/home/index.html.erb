@@ -1,4 +1,6 @@
-<h2>News for people making social impact. Sign up, subscribe and submit.</h2>
+<p>News for people making social impact. <strong><a href="/invitations/open" style="color: green !important;">Sign Up</a></strong>, subscribe and <% if @user && @user.can_submit_stories? %>
+          <%= "/stories/new" => t('.submitlink') }) %>
+        <% end %></p>
 
 <% if @cur_url == "/recent" %>
   <div class="box" id="leader">
