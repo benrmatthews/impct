@@ -72,10 +72,6 @@
           </span>
         <% end %>
 
-        <% if !@user %>
-           <a href="/about"><%= t('.aboutlink') %></a>
-        <% end %>
-
         <span class="headerlinks">
           <% links.each do |u,v| %>
             <a href="<%= u %>" <%= u == @cur_url ? raw("class=\"cur_url\"") :
@@ -110,6 +106,7 @@
         <% end %>
         <% if !@user %>
           <strong><a href="/invitations/open" style="color: green !important;">Sign Up</a></strong>
+          <a href="/about"><%= t('.aboutlink') %></a>
         <% end %>
         </span>
       </div>
