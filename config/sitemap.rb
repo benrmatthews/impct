@@ -23,7 +23,7 @@ SitemapGenerator::Sitemap.create do
   # Add all stories:
   #
   Story.find_each do |story|
-    add story_path(story), :lastmod => story.updated_at
+    add story_path(story)
   end
 
 
