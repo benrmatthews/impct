@@ -31,6 +31,9 @@ gem "rdiscount"
 
 gem "activerecord-typedstore"
 
+gem 'sitemap_generator'
+
+
 # for twitter-posting bot
 gem "oauth"
 
