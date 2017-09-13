@@ -41,7 +41,7 @@ gem "oauth"
 gem "mail"
 
 group :test, :development do
-  gem "rspec-rails", "~> 2.6"
+  gem "rspec-rails"
   gem "machinist"
   gem "sqlite3"
   gem "faker"
