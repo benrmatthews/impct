@@ -15,13 +15,16 @@ SitemapGenerator::Sitemap.create do
   #
   # Examples:
   #
-  # Add '/about'
-  #
-  add about_path, :priority => 0.9, :changefreq => 'weekly'
+  add '/about'
+  add '/login'
+  add '/invitations/open'
+  add '/stories/new'
   #
   # Add all stories:
   #
   Story.find_each do |story|
     add story_path(story), :lastmod => story.updated_at
   end
+
+
 end

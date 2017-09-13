@@ -1,2 +1,3 @@
 User-agent: *
 Disallow: /search
+Sitemap: https://impct.io/sitemap.xml.gz

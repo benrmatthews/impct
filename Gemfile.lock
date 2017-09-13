@@ -70,7 +70,7 @@ GEM
     minitest (5.10.3)
     multi_json (1.12.2)
     multipart-post (2.0.0)
-    mysql2 (0.4.9)
+    mysql2 (0.3.21)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     oauth (0.5.3)
@@ -169,7 +169,7 @@ DEPENDENCIES
   jquery-rails
   machinist
   mail
-  mysql2 (>= 0.3.14)
+  mysql2 (~> 0.3.18)
   nokogiri (= 1.6.1)
   oauth
   pg
@@ -189,4 +189,4 @@ RUBY VERSION
    ruby 2.3.0p-1
 
 BUNDLED WITH
-   1.15.3
+   1.16.0.pre.2
