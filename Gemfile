@@ -32,6 +32,7 @@ gem "rdiscount"
 gem "activerecord-typedstore"
 
 gem 'sitemap_generator'
+gem 'friendly_id'
 
 
 # for twitter-posting bot

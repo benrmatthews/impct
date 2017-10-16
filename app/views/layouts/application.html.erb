@@ -24,7 +24,6 @@
   <% if @meta_description.present? %>
     <meta name=”description” content=”<%= @meta_description %>”>
   <% end %>
-  @meta_description = ‘Social news community focusing on non-profits, tech for good and social impact'
   <%= stylesheet_link_tag "application", :media => "all" %>
   <% if @user %>
     <%= javascript_include_tag "application" %>

@@ -8,6 +8,10 @@ class StoriesController < ApplicationController
     :update ]
   before_filter :find_story!, :only => [ :suggest, :submit_suggestions ]
 
+  def index
+    @meta_description = "Social news community focusing on non-profits, tech for good and social impact"
+  end
+
   def create
     @title = "Submit Story"
     @cur_url = "/stories/new"

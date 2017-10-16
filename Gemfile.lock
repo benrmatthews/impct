@@ -50,6 +50,8 @@ GEM
       pusher-client (~> 0.3)
       riddle (>= 1.5.6)
       thinking-sphinx
+    friendly_id (5.2.3)
+      activerecord (>= 4.0.0)
     htmlentities (4.3.4)
     i18n (0.8.6)
     innertube (1.1.0)
@@ -165,6 +167,7 @@ DEPENDENCIES
   exception_notification
   faker
   flying-sphinx (= 1.2.0)
+  friendly_id
   htmlentities
   jquery-rails
   machinist
