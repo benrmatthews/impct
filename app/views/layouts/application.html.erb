@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="//load.sumome.com/" data-sumo-site-id="8e5e0b38c9cd9f3696be54b7b4726e0add35ab7942c5203eb248f961a3d67aec" async="async"></script>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,6 +21,10 @@
   <% end %>
   <title><%= @title.present? ? "#{@title} | " : "" %><%=
     Rails.application.name %></title>
+  <% if @meta_description.present? %>
+    <meta name=”description” content=”<%= @meta_description %>”>
+  <% end %>
+  @meta_description = ‘Social news community focusing on non-profits, tech for good and social impact'
   <%= stylesheet_link_tag "application", :media => "all" %>
   <% if @user %>
     <%= javascript_include_tag "application" %>
