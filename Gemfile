@@ -9,7 +9,7 @@ gem "puma"
 gem "rails_12factor"
 
 gem "mysql2", '~> 0.3.18'
-gem "pg"
+gem 'pg', '~> 0.11'
 # NOTE: If you use PostgreSQL, you must still leave enabled the above mysql2
 # gem for Sphinx full text search to function.
 
