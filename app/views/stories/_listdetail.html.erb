@@ -119,7 +119,7 @@ class="story <%= story.vote && story.vote[:vote] == 1 ? "upvoted" : "" %>
 
         <%= time_ago_in_words_label(story.created_at, :strip_about => true) %>
 
-        <% if story.is_editable_by_user?(@user) %>
+        <!-- <% if story.is_editable_by_user?(@user) %>
           |
           <a href="<%= edit_story_path(story.short_id) %>">edit</a>
 
@@ -168,6 +168,8 @@ class="story <%= story.vote && story.vote[:vote] == 1 ? "upvoted" : "" %>
           <a href="https://web.archive.org/web/<%= story.url %>" rel="nofollow"
             target="_blank">cached</a>
         <% end %>
+
+        -->
         <% if !story.is_gone? %>
           <span class="comments_label">
             |
