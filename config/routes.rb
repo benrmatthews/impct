@@ -144,6 +144,8 @@ Lobsters::Application.routes.draw do
     get "/about" => "home#about"
     get "/chat" => "home#chat"
 
+    get 'announcements/:id/hide', to: 'announcements#hide', as: 'hide_announcement'
+
     if defined?(BbsController) || Rails.env.development?
       get "/bbs" => "bbs#index"
     end

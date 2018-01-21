@@ -1,0 +1,49 @@
+<%- model_class = Story -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @story.user_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:url) %>:</strong></dt>
+  <dd><%= @story.url %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @story.title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @story.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:short_id) %>:</strong></dt>
+  <dd><%= @story.short_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:is_expired) %>:</strong></dt>
+  <dd><%= @story.is_expired %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:upvotes) %>:</strong></dt>
+  <dd><%= @story.upvotes %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:downvotes) %>:</strong></dt>
+  <dd><%= @story.downvotes %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:is_moderated) %>:</strong></dt>
+  <dd><%= @story.is_moderated %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:hotness) %>:</strong></dt>
+  <dd><%= @story.hotness %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:markeddown_description) %>:</strong></dt>
+  <dd><%= @story.markeddown_description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:story_cache) %>:</strong></dt>
+  <dd><%= @story.story_cache %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:merged_story_id) %>:</strong></dt>
+  <dd><%= @story.merged_story_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:unavailable_at) %>:</strong></dt>
+  <dd><%= @story.unavailable_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:twitter_id) %>:</strong></dt>
+  <dd><%= @story.twitter_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_is_author) %>:</strong></dt>
+  <dd><%= @story.user_is_author %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              stories_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_story_path(@story), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              story_path(@story),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

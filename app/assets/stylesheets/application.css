@@ -1,6 +1,7 @@
 /*
  *= require select2
  *= require_self
+ *= require bootstrap_and_overrides
  *= require mobile
  *= require_tree ./local
 */

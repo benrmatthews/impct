@@ -1,0 +1,139 @@
+<%= form_for @story, :html => { :class => "form-horizontal story" } do |f| %>
+
+  <% if @story.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@story.errors.count, "error") %> prohibited this story from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @story.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :user_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :user_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:user_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :url, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :url, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:url) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :title, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:title) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:description) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :short_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :short_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:short_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :is_expired, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :is_expired, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:is_expired) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :upvotes, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :upvotes, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:upvotes) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :downvotes, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :downvotes, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:downvotes) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :is_moderated, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :is_moderated, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:is_moderated) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :hotness, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :hotness, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:hotness) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :markeddown_description, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :markeddown_description, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:markeddown_description) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :story_cache, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :story_cache, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:story_cache) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :merged_story_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :merged_story_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:merged_story_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :unavailable_at, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :unavailable_at, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:unavailable_at) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :twitter_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :twitter_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:twitter_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :user_is_author, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :user_is_author, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:user_is_author) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                stories_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

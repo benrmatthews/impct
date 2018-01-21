@@ -29,6 +29,8 @@ gem "nokogiri", "= 1.6.1"
 gem "htmlentities"
 gem "rdiscount"
 
+gem "twitter-bootstrap-rails"
+
 gem "activerecord-typedstore"
 
 gem 'sitemap_generator'

@@ -52,85 +52,89 @@
 	</script>
 </head>
 <body>
+  <% Announcement.current(cookies.signed[:hidden_announcement_ids]).each do |announcement| %>
+    <%= div_for announcement do %>
+      <%= announcement.message %>
+      <%= link_to "hide announcement", hide_announcement_path(announcement), remote: true %>
+    <% end %>
+  <% end %>
   <div id="wrapper">
-    <div class="navbar">
-      <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-        <div id="headerleft">
-          <a id="l_holder" href="/" title="<%= Rails.application.name %> (Current traffic: <%=
-            @traffic.to_i %>)"></a>
+    <div id="header">
+      <div id="headerleft">
+        <a id="l_holder" href="/" title="<%= Rails.application.name %> (Current traffic: <%=
+          @traffic.to_i %>)"></a>
 
-          <% links = {
-            "/" => @cur_url == "/" ? Rails.application.name : t('.homelink'),
-            # "/recent" => t('.recentlink'),
-            # "/comments" => t('.commentslink')
-          } %>
+        <% links = {
+          "/" => @cur_url == "/" ? Rails.application.name : t('.homelink'),
+          # "/recent" => t('.recentlink'),
+          # "/comments" => t('.commentslink')
+        } %>
 
-             <% links.merge!({ "/stories/new" => t('.submitstorylink') }) %>
+           <% links.merge!({ "/stories/new" => t('.submitstorylink') }) %>
 
-          <% if @cur_url.present? && !links.keys.include?(@cur_url) &&
-          @heading.present? %>
-            <span id="headertitle">
-              <a href="<%= @cur_url %>"><%= @heading %></a>
-            </span>
-          <% end %>
-
-          <span class="headerlinks">
-            <% links.each do |u,v| %>
-              <a href="<%= u %>" <%= u == @cur_url ? raw("class=\"cur_url\"") :
-                "" %>><%= v %></a>
-            <% end %>
+        <% if @cur_url.present? && !links.keys.include?(@cur_url) &&
+        @heading.present? %>
+          <span id="headertitle">
+            <a href="<%= @cur_url %>"><%= @heading %></a>
           </span>
-        </div>
-
-        <div id="headerright">
-          <span class="headerlinks">
-  <!--         <a href="/filters" <%= @cur_url == "/filters" ?
-            raw("class=\"cur_url\"") : "" %>><%= t('.filterslink') %></a> -->
-          <% if @user %>
-            <% if (count = @user.unread_message_count) > 0 %>
-              <a href="/messages" class="new_messages <%= @cur_url == "/messages" ?
-                "cur_url" : "" %>"><%= t(".newmessagelink", :count => count)
-                %></a>
-            <% else %>
-              <a href="/messages" <%= @cur_url == "/messages" ?
-                raw("class=\"cur_url\"") : "" %>><%= t('.messageslink') %></a>
-            <% end %>
-
-            <a href="/settings" <%= @cur_url == "/settings" ?
-              raw("class=\"cur_url\"") : "" %>><%= @user.username %>
-              (<%= @user.karma %>)</a>
-
-            <%= link_to t('.logoutlink'), { :controller => "login", :action => "logout" },
-              :data => { :confirm => t('.confirmlogoutlink') },
-              :method => "post" %>
-          <% else %>
-            <a href="/about"><%= t('.aboutlink') %></a>
-            <a href="/login"><%= t('.loginlink') %></a>
-          <% end %>
-          <% if !@user %>
-            <strong><a href="/invitations/open" style="color: green !important;">Sign Up</a></strong>
-          <% end %>
-          </span>
-        </div>
-
-        <div class="clear"></div>
-      </div>
-
-      <div id="inside">
-        <% [ :error, :success, :notice ].each do |f| %>
-          <% if flash[f].present? %>
-            <div class="flash-<%= f %>"><%= flash[f] %></div>
-          <% end %>
         <% end %>
 
-        <%= yield %>
+        <span class="headerlinks">
+          <% links.each do |u,v| %>
+            <a href="<%= u %>" <%= u == @cur_url ? raw("class=\"cur_url\"") :
+              "" %>><%= v %></a>
+          <% end %>
+        </span>
+      </div>
 
-        <div id="footer">
-          <a href="https://montfort.io/">Made by Montfort</a> 
+      <div id="headerright">
+        <span class="headerlinks">
+<!--         <a href="/filters" <%= @cur_url == "/filters" ?
+          raw("class=\"cur_url\"") : "" %>><%= t('.filterslink') %></a> -->
+        <% if @user %>
+          <% if (count = @user.unread_message_count) > 0 %>
+            <a href="/messages" class="new_messages <%= @cur_url == "/messages" ?
+              "cur_url" : "" %>"><%= t(".newmessagelink", :count => count)
+              %></a>
+          <% else %>
+            <a href="/messages" <%= @cur_url == "/messages" ?
+              raw("class=\"cur_url\"") : "" %>><%= t('.messageslink') %></a>
+          <% end %>
+
+          <a href="/settings" <%= @cur_url == "/settings" ?
+            raw("class=\"cur_url\"") : "" %>><%= @user.username %>
+            (<%= @user.karma %>)</a>
+
+          <%= link_to t('.logoutlink'), { :controller => "login", :action => "logout" },
+            :data => { :confirm => t('.confirmlogoutlink') },
+            :method => "post" %>
+        <% else %>
           <a href="/about"><%= t('.aboutlink') %></a>
-        </div>
-        <div class="clear"></div>
-      </nav>
+          <a href="/login"><%= t('.loginlink') %></a>
+        <% end %>
+        <% if !@user %>
+          <strong><a href="/invitations/open" style="color: green !important;">Sign Up</a></strong>
+        <% end %>
+        </span>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    <div id="inside">
+      <% [ :error, :success, :notice ].each do |f| %>
+        <% if flash[f].present? %>
+          <div class="flash-<%= f %>"><%= flash[f] %></div>
+        <% end %>
+      <% end %>
+
+      <%= yield %>
+
+      <div id="footer">
+        <a href="https://montfort.io/">Made by Montfort</a> 
+        <a href="/about"><%= t('.aboutlink') %></a>
+      </div>
+      <div class="clear"></div>
     </div>
   </div>
 </body>

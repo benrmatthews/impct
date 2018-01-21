@@ -1,0 +1,66 @@
+<%- model_class = Story -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:url) %></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:short_id) %></th>
+      <th><%= model_class.human_attribute_name(:is_expired) %></th>
+      <th><%= model_class.human_attribute_name(:upvotes) %></th>
+      <th><%= model_class.human_attribute_name(:downvotes) %></th>
+      <th><%= model_class.human_attribute_name(:is_moderated) %></th>
+      <th><%= model_class.human_attribute_name(:hotness) %></th>
+      <th><%= model_class.human_attribute_name(:markeddown_description) %></th>
+      <th><%= model_class.human_attribute_name(:story_cache) %></th>
+      <th><%= model_class.human_attribute_name(:merged_story_id) %></th>
+      <th><%= model_class.human_attribute_name(:unavailable_at) %></th>
+      <th><%= model_class.human_attribute_name(:twitter_id) %></th>
+      <th><%= model_class.human_attribute_name(:user_is_author) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stories.each do |story| %>
+      <tr>
+        <td><%= link_to story.id, story_path(story) %></td>
+        <td><%= story.user_id %></td>
+        <td><%= story.url %></td>
+        <td><%= story.title %></td>
+        <td><%= story.description %></td>
+        <td><%= story.short_id %></td>
+        <td><%= story.is_expired %></td>
+        <td><%= story.upvotes %></td>
+        <td><%= story.downvotes %></td>
+        <td><%= story.is_moderated %></td>
+        <td><%= story.hotness %></td>
+        <td><%= story.markeddown_description %></td>
+        <td><%= story.story_cache %></td>
+        <td><%= story.merged_story_id %></td>
+        <td><%= story.unavailable_at %></td>
+        <td><%= story.twitter_id %></td>
+        <td><%= story.user_is_author %></td>
+        <td><%=l story.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_story_path(story), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      story_path(story),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_story_path,
+            :class => 'btn btn-primary' %>
