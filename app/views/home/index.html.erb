@@ -1,3 +1,13 @@
+<div id="wrapper">
+<div class="clear"></div>
+<div class="clear"></div>
+<h1>What good is happening in the world today?</h1>
+<h2><a href="/">impct</a> is a home for sharing <a href="/">stories</a>, <a href="/t/news">news</a>, <a href="/t/tools">tools</a> and  <a href="/t/resources">resources</a> to create positive social impact.</h2>
+<h3><a href="/stories/new">Add your own story</a> or <a href="/tags">explore our site</a>.</h3>
+<div class="clear"></div>
+</div>
+
+
 <ol class="stories list <%= @cur_url == "/hidden" ? "show_hidden" : "" %>">
   <%= render :partial => "stories/listdetail", :collection => @stories,
     :as => :story %>
