@@ -1,6 +1,13 @@
 <div class="box wide">
-  <div class="legend">
-    Tags
+  <div id="wrapper" class="stories list">
+    <div id="inside">
+      <div class="clear"></div>
+      <div class="clear"></div>
+        <h1>Tags</h1>
+        <h2>A list of tags you can add to each story. The bigger the tag, the more it's been used.</h2>
+        <h3>Want to suggest a new tag? <a href="mailto:ben@montfort.io">Contact us</a>.</h3> 
+      <div class="clear"></div>
+    </div>
   </div>
 
   <% max_size = @tags.map{|t| t.stories_count }.max %>
